@@ -1,4 +1,4 @@
-usernames = ['admin', 'jessa']
+usernames = []
 
 if usernames:
     for username in usernames:
