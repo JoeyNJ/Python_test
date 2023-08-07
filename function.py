@@ -71,4 +71,65 @@ def describe_pet(animal_type, pet_name):
     print(f"\nI have a {animal_type}.")
     print(f"My {animal_type}'s name is {pet_name.title()}.")
     
-describe_pet()
+#describe_pet() here's a missing information
+
+
+# Return Values
+
+# returning a simple value
+
+def get_formated_name(first_name, last_name):
+    """Return a full name, neatly formated."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+musician = get_formated_name('jimi', 'hendrix')
+print(musician)
+
+# Making an Argument Optional
+# here if we wanted to add a middle name we can
+
+def get_formated_name(first_name, middle_name, last_name):
+    """Return a full name, neatly formated."""
+    full_name = f"{first_name} {middle_name} {last_name}"
+    return full_name.title()
+
+musician = get_formated_name('jonh', 'lee', 'hooker') # will give error if one is missing
+print(musician)
+
+# set default value of the middle_name to an empty string and move it to the end
+
+def get_formated_name(first_name, last_name, middle_name=""):
+    """Return a full name, neatly formated."""
+    if middle_name:
+        full_name = f"{first_name} {middle_name} {last_name}"
+    else:
+        full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+musician = get_formated_name('jimi', 'hendrix')
+print(musician)
+musician = get_formated_name('john', 'hooker', 'lee')
+print(musician)
+
+# Returning a Dictionary
+
+def build_person(first_name, lastname):
+    """Return a dictionary of information about a persion."""
+    person = {'first': first_name, 'last': lastname}
+    return person
+
+musician = build_person('jimi', 'hendrix')
+print(musician)
+
+
+# here you can add a optional information age
+def build_person(first_name, lastname, age=None):
+    """Return a dictionary of information about a persion."""
+    person = {'first': first_name, 'last': lastname}
+    if age:
+        person['age'] = age
+    return person
+
+musician = build_person('jimi', 'hendrix', age=56)
+print(musician)
