@@ -144,15 +144,64 @@ def get_formatted_name(first_name, last_name):
 
 # This is an infinite loop
 
-while True:
-    print("\nPlease tell me your name:")
-    print("(enter 'q' anytime to quit.)")
-    f_name = input("First name: ")
-    if f_name == 'q':
-        break
-    l_name = input("Last name: ")
-    if l_name == 'q':
-        break
+#while True:
+#    print("\nPlease tell me your name:")
+#    print("(enter 'q' anytime to quit.)")
+#    f_name = input("First name: ")
+#    if f_name == 'q':
+#        break
+#    l_name = input("Last name: ")
+#    if l_name == 'q':
+#        break
     
-    formatted_name = get_formatted_name(f_name, l_name)
-    print(f"\nHello, {formatted_name}")
+#    formatted_name = get_formatted_name(f_name, l_name)
+#    print(f"\nHello, {formatted_name}")
+    
+# Passing a list
+
+def greet_users(names):
+    """Print a simple greeting to each user in the list."""
+    for name in names:
+        msg = f"Hello, {name.title()}!"
+        print(msg)
+        
+usernames = ['hanna', 'ty', 'margot']
+greet_users(usernames)
+
+# Modifiying a list in a Function
+
+unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+
+while unprinted_designs:
+    current_design = unprinted_designs.pop()
+    print(f"Printing model: {current_design}")
+    completed_models.append(current_design)
+    
+print("\nThe following models have been printed:")
+for completed_model in completed_models:
+    print(completed_model)
+    
+# Now we reorganize this code by writing 2 functions
+
+def print_models(unprinted_designs, completed_models):
+    """
+        Simulate printing each design, until none are left.
+        Move each design to completed_models after printing.
+    """
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print(f"Printing model: {current_design}")
+        completed_models.append(current_design)
+        
+def show_completed_models(completed_models):
+    """Show all models that have been completed."""
+    print(f"\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+        
+unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
